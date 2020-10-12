@@ -4,25 +4,24 @@
 // and constant time look up with the JS Object.
 
 function removeDupes(list) {
-  // This is out tmp buffer.
+  // This is our tmp buffer.
   const cache = {};
   let node = list.head;
+
+  // Hold a reference to the last node so that if there's a duplicate
+  // we can change it's next value to the next.next value.
+  // skipping over duplicated value.
   let prev;
 
-  while (node.next) {
-    if (!cache[[node.val]]) {
+  while (node) {
+    if (cache[[node.val]]) {
+      prev.next = node.next ? node.next : null;
+    } else {
       cache[[node.val]] = true;
       prev = node;
-    } else if (cache[[node.val]]) {
-      prev.next = node.next ? node.next : null;
     }
 
     node = node.next;
-  }
-
-  // the last one
-  if (cache[[node.val]]) {
-    prev.next = null;
   }
 
   return list;
