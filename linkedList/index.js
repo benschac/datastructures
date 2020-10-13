@@ -49,6 +49,30 @@ class LinkedList {
     }
   }
 
+  remove(idx) {
+    let node = this.head;
+    let prev;
+    let count = 1;
+
+    if (idx === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    prev = this.head;
+    while (node) {
+      node = node.next;
+      if (idx === count + 1) {
+        prev.next = node.next;
+        node.next = null;
+        return;
+      }
+
+      prev = prev.next;
+      count++;
+    }
+  }
+
   get length() {
     let node = this.head;
     let count = 0;
