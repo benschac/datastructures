@@ -1,4 +1,5 @@
 const LinkedList = require("../linkedList");
+const arrayToList = require("../utils/arrayToList");
 const listToArray = require("../utils/listToArray");
 const sumLists = require("./2-5");
 
@@ -40,5 +41,26 @@ describe("sumLists", function () {
     expect(listToArray(sumLists(list1, list2))).toEqual(
       listToArray(expectedValue)
     );
+  });
+
+  it("sums two one digit numbers", () => {
+    const list1 = new LinkedList(1);
+    const list2 = new LinkedList(2);
+
+    expect(listToArray(sumLists(list1, list2))).toEqual([3]);
+  });
+
+  it("sums one one digit numbers", () => {
+    const list1 = new LinkedList(1);
+    const list2 = new LinkedList(null);
+
+    expect(listToArray(sumLists(list1, list2))).toEqual([1]);
+  });
+
+  it("sums really big numbers", () => {
+    const list1 = arrayToList([9, 8, 7, 6, 5, 6, 5]);
+    const list2 = arrayToList([5, 6, 7, 8, 5, 4, 3]);
+
+    expect(listToArray(sumLists(list1, list2))).toEqual([4, 5, 5, 5, 1, 1, 9]);
   });
 });
