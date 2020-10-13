@@ -1,5 +1,12 @@
 const LinkedList = require("../linkedList");
 
+// Runtime in O(n)
+// We need to iterate through number linked list once n times.
+
+// Space O(n) --> we're inserting n + 1 values into a linked list to return
+
+// TODO / HOMEWORK
+// Write this function recursively
 function sumLists(list1, list2) {
   let remainder = 0;
   let result;

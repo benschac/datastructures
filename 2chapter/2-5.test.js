@@ -1,7 +1,6 @@
 const LinkedList = require("../linkedList");
 const listToArray = require("../utils/listToArray");
 const sumLists = require("./2-5");
-const print = require("../utils/print");
 
 describe("sumLists", function () {
   it(`${this.description} should some two linked list values`, () => {
