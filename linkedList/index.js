@@ -1,4 +1,4 @@
-function Node(val, next) {
+function Node(val = null, next) {
   this.val = val;
   this.next = next;
 }
@@ -8,10 +8,6 @@ class LinkedList {
   constructor(head) {
     this.head = new Node(head);
   }
-
-  // get this() {
-  //   return this.head;
-  // }
 
   push(val) {
     let node = this.head;
