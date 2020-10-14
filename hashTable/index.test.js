@@ -37,6 +37,12 @@ describe("HashTable", function () {
     table.insert("john", "smith");
     table.insert("jane", "smith");
     table.insert("sean", "smith2");
+    table.insert("prolific", "interactive");
+    table.insert("facebook", "fake news");
+    table.insert("boop", "blerp");
+    table.insert("blemp", "blop");
+    table.insert("blemp", "blop");
+    table.insert("bob", "hi");
     let idx = table.getIndex("sean");
 
     let slot = table.list[idx].head;
@@ -45,10 +51,41 @@ describe("HashTable", function () {
       slot = slot.next;
     }
 
-    console.log(table);
+    table.list[2].shift();
+    table.list[2].push({ key: "test", value: "123" });
+    table.list[2].push({ key: "hello", value: "world" });
+    table.insert({ key: "hello", value: "world" });
+
+    expect(table.getValue("hello")).toBe("world");
+
     expect(slot).toHaveProperty("val.key", "sean");
     expect(table.getValue("sean")).toEqual("smith2");
-    expect(count(table.list)).toEqual(2);
+    expect(count(table.list)).toEqual(6);
+  });
+
+  it(`${this.description} insert should push to end of linkedlist`, () => {
+    jest.spyOn(table, "resize").mockImplementation(() => 2);
+
+    let node;
+
+    table.insert("hello", "world");
+    table.insert("world", "hello");
+    table.insert("stanley", "star");
+
+    node = table.list[2].head;
+    while (node.next) {
+      node = node.next;
+    }
+
+    expect(node.val).toEqual({ key: "stanley", value: "star" });
+  });
+
+  it(`${this.description} resize should double the array size`, () => {
+    expect(table.list.length).toBe(4);
+    table.insert("hello", "world");
+    table.resize();
+
+    expect(table.list.length).toBe(8);
   });
 
   it(`${this.description} getValue should return the correct value`, () => {

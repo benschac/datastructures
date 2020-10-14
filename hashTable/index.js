@@ -1,5 +1,4 @@
 const LinkedList = require("../linkedList");
-
 // TODO: write with bsd next
 class HashTable {
   constructor() {
@@ -64,7 +63,10 @@ class HashTable {
           let idx = this.getIndex(list.val.key);
 
           if (this.list[idx]) {
-            this.list[idx].insert({ key: list.val.key, value: list.val.value });
+            this.list[idx].push({
+              key: list.val.key,
+              value: list.val.value,
+            });
           } else {
             this.list[idx] = new LinkedList({
               key: list.val.key,
@@ -82,7 +84,9 @@ class HashTable {
 
   insert(key, value) {
     let idx = this.getIndex(key);
+    let list = this.list[idx];
     let slot = this.list[idx];
+    slot = slot && slot.head;
 
     if (slot) {
       while (slot.next) {
@@ -90,7 +94,7 @@ class HashTable {
         slot = slot.next;
       }
 
-      slot.push({ key, value });
+      list.push({ key, value });
     } else {
       this.availableIndex--;
       this.list[idx] = new LinkedList({ key, value });
