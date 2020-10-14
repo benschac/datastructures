@@ -67,4 +67,13 @@ describe("LinkedList", function () {
     expect(list.shift()).toBe(1);
     expect(list.length).toBe(4);
   });
+
+  it(`${this.description} should remove the first node in the list`, () => {
+    list.push(2);
+    list.push(3);
+
+    list.remove(0);
+
+    expect(list.head.val).toBe(2);
+  });
 });
