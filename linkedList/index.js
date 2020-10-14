@@ -1,7 +1,4 @@
-function Node(val = null, next) {
-  this.val = val;
-  this.next = next;
-}
+const Node = require("../node");
 
 class LinkedList {
   // head is a value

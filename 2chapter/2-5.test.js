@@ -63,4 +63,16 @@ describe("sumLists", function () {
 
     expect(listToArray(sumLists(list1, list2))).toEqual([4, 5, 5, 5, 1, 1, 9]);
   });
+
+  it("there is no list1", () => {
+    let list1;
+    const list2 = arrayToList([5, 6, 7, 8, 5, 4, 3]);
+    expect(listToArray(sumLists(list1, list2))).toEqual([5, 6, 7, 8, 5, 4, 3]);
+  });
+
+  it("there is no list2", () => {
+    const list1 = arrayToList([9, 8, 7, 6, 5, 6, 5]);
+    let list2;
+    expect(listToArray(sumLists(list1, list2))).toEqual([9, 8, 7, 6, 5, 6, 5]);
+  });
 });

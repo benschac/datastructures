@@ -11,8 +11,17 @@ function sumLists(list1, list2) {
   let remainder = 0;
   let result;
 
-  list1 = list1.head;
-  list2 = list2.head;
+  if (!list1 || !list1.head) {
+    list1 = { val: 0, next: null };
+  } else {
+    list1 = list1.head;
+  }
+
+  if (!list2 || !list2.head) {
+    list2 = { val: 0, next: null };
+  } else {
+    list2 = list2.head;
+  }
 
   while (list1 || list2) {
     if (!list1) {

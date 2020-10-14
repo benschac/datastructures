@@ -34,7 +34,11 @@ describe("HashTable", function () {
 
   it(`${this.description} getValue should return the correct value`, () => {
     table.insert("hello", "world");
+    let idx = table.getIndex("hello");
 
+    let slot = table.list[idx];
+    expect(slot).toHaveProperty("head");
+    expect(slot["head"]).toHaveProperty("next");
     expect(table.getValue("hello")).toBe("world");
   });
 

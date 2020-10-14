@@ -34,10 +34,13 @@ class HashTable {
     if (slot.head) {
       slot = slot.head;
       while (slot) {
+        // if the key matches return the value
         if (slot.val.key === key) {
           return slot.val.value;
         }
 
+        // continue iterating through the linkedList
+        // until we find our key
         slot = slot.next;
       }
     }
@@ -58,7 +61,7 @@ class HashTable {
           let idx = this.getIndex(list.val.key);
 
           if (this.list[idx]) {
-            this.list.insert({ key: list.val.key, value: list.val.value });
+            this.list[idx].insert({ key: list.val.key, value: list.val.value });
           } else {
             this.list[idx] = new LinkedList({
               key: list.val.key,
@@ -80,8 +83,10 @@ class HashTable {
 
     if (slot) {
       while (slot.next) {
+        // Go to the end of the linkedList
         slot = slot.next;
       }
+
       slot.push({ key, value });
     } else {
       this.availableIndex--;
