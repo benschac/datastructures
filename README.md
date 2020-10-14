@@ -3,10 +3,11 @@
 ![lines](badge-lines.svg)
 ![lines](badge-branches.svg)
 
-# Data Structures + Algorithm
+# Data Structures + Algorithms
 
-### In Javascript
+#### Written and tested in Javascript
 
 ### Data Structures
 
 - [LinkedList](./linkedList)
+- [HashTable](./hashTable)
