@@ -28,8 +28,11 @@ class HashTable {
 
   getValue(key) {
     let idx = this.getIndex(key);
-
     let slot = this.list[idx];
+
+    if (!slot || !slot.head) {
+      return;
+    }
 
     if (slot.head) {
       slot = slot.head;

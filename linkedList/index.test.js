@@ -48,6 +48,22 @@ describe("LinkedList", function () {
     expect(list.findByIndex(3)).toBe(4);
   });
 
+  it(`${this.description} findByIndex with an empty linkedlist should return undefined`, () => {
+    let emptyList = new LinkedList();
+
+    expect(emptyList.findByIndex(0)).toBe(null);
+    expect(emptyList.findByIndex(3)).toBe(null);
+  });
+
+  it(`${this.description} findByIndex should return null if index doesn't exist`, () => {
+    list.push(2);
+    list.push(3);
+    list.push(4);
+    list.push(5);
+
+    expect(list.findByIndex(10)).toBe(null);
+  });
+
   it(`${this.description} pop should remove the last element`, () => {
     list.push(2);
     list.push(3);

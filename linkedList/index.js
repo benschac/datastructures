@@ -85,6 +85,7 @@ class LinkedList {
   findByIndex(idx) {
     let count = 0;
     let node = this.head;
+
     while (node.next) {
       if (count === idx) {
         return node.val;
@@ -93,7 +94,11 @@ class LinkedList {
       node = node.next;
     }
 
-    return node.val;
+    if (count === idx) {
+      return node.val;
+    } else {
+      return null;
+    }
   }
 }
 
