@@ -11,3 +11,5 @@
 
 - [LinkedList](./linkedList)
 - [HashTable](./hashTable)
+- [Stack](./stack)
+- [Queue](./queue)
