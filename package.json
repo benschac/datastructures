@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "npm test -- --coverage",
+    "test:watch": "jest --watch --coverage",
     "test:badges": "npm run test:coverage && jest-coverage-badges && mv coverage/**.svg ./"
   },
   "jest": {

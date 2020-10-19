@@ -65,18 +65,14 @@ describe("HashTable", function () {
 
   it(`${this.description} insert should push to end of linkedlist`, () => {
     jest.spyOn(table, "resize").mockImplementation(() => 2);
-
     let node;
-
     table.insert("hello", "world");
     table.insert("world", "hello");
     table.insert("stanley", "star");
-
     node = table.list[2].head;
     while (node.next) {
       node = node.next;
     }
-
     expect(node.val).toEqual({ key: "stanley", value: "star" });
   });
 

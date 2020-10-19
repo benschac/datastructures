@@ -1,4 +1,5 @@
 const LinkedList = require("./index");
+const listToArray = require("../utils/listToArray");
 
 describe("LinkedList", function () {
   let list;
@@ -91,5 +92,15 @@ describe("LinkedList", function () {
     list.remove(0);
 
     expect(list.head.val).toBe(2);
+  });
+
+  it(`${this.description} unshift: should add an element to the top of the list and return length`, () => {
+    list.push(2);
+    list.push(3);
+
+    list.unshift(4);
+    expect(listToArray(list)).toEqual([4, 1, 2, 3]);
+    list.unshift(5);
+    expect(listToArray(list)).toEqual([5, 4, 1, 2, 3]);
   });
 });

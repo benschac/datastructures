@@ -18,6 +18,17 @@ class LinkedList {
     return count;
   }
 
+  // Add element to head
+  // and make it's next old head
+  unshift(newHead) {
+    let oldHead = this.head;
+    const node = new Node(newHead);
+    node.next = oldHead;
+    this.head = node;
+
+    return this.length;
+  }
+
   shift() {
     let oldHead = this.head;
 
